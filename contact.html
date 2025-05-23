@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title data-i18n="contact_title">BalaStyle – Байланыс</title>
+
+  <!-- Bootstrap & icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body            { font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif; padding-top:60px; color:#333; }
+    .contact-info   { background:#f8f9fa; padding:30px; border-radius:10px; height:100%; }
+    .contact-form   { background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,.1); }
+    .social-icon    { width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;
+                      background:#0d6efd;color:#fff;border-radius:50%;margin-right:10px;transition:.3s; }
+    .social-icon:hover { background:#0b5ed7; transform:translateY(-3px); }
+    .language-btn   { padding:5px 10px; border:1px solid #ddd; background:white; cursor:pointer; margin-left:5px; }
+    .language-btn.active { background:#0d6efd; color:white; border-color:#0d6efd; }
+
+    /* Footer tweaks */
+    footer{font-size:1rem;}
+    footer .container{max-width:1180px;}
+    footer img[src$="logo-white.png"]{width:150px;object-fit:contain;}
+    footer .row>[class^="col-"]{min-width:220px;margin-bottom:1.5rem;}
+    footer .social-icons a{font-size:1.25rem;}
+    footer ul li a:hover{text-decoration:underline;}
+  </style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="BalaStyle" height="50"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="home">Басты бет</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html" data-i18n="products">Киімдер</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="about">Біз туралы</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html" data-i18n="contact">Байланыс</a></li>
+      </ul>
+
+      <div class="d-flex align-items-center">
+        <div class="language-selector">
+          <button class="language-btn active" onclick="setLanguage('kk')">Қаз</button>
+          <button class="language-btn" onclick="setLanguage('ru')">Рус</button>
+          <button class="language-btn" onclick="setLanguage('en')">Eng</button>
+        </div>
+        
+        <a href="cart.html" class="btn btn-primary position-relative ms-3">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-counter">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Content ===== -->
+<div class="container py-5">
+  <h1 class="text-center mb-5" data-i18n="contact_header">Бізбен байланысыңыз</h1>
+
+  <div class="row">
+    <!-- Contact Info -->
+    <div class="col-md-5 mb-4">
+      <div class="contact-info">
+        <h3 class="mb-4" data-i18n="contact_info">Байланыс ақпараты</h3>
+
+        <h5 class="mb-1"><i class="fas fa-map-marker-alt me-2"></i><span data-i18n="address">Мекен-жай</span></h5>
+        <p data-i18n="address_value">Қазақстан, Алматы қ., Жандосов </p>
+
+        <h5 class="mb-1"><i class="fas fa-phone me-2"></i><span data-i18n="phone">Телефон</span></h5>
+        <p>+7 771 154 8927<br>+7 708 157 13 14</p>
+
+        <h5 class="mb-1"><i class="fas fa-envelope me-2"></i><span data-i18n="email">E-mail</span></h5>
+        <p>zhansaya.nurdaulet@narxoz.kz<br>support@balastyle.kz</p>
+
+        <h5 class="mb-1"><i class="fas fa-clock me-2"></i><span data-i18n="work_hours">Жұмыс уақыты</span></h5>
+        <p data-i18n="work_hours_value">Дс–Жм: 09:00–20:00<</p>
+
+        <h5 class="mb-3" data-i18n="social_media">Әлеуметтік желілер</h5>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        
+        
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="col-md-7 mb-4">
+      <div class="contact-form">
+        <h3 class="mb-4" data-i18n="feedback_form">Кері байланыс формасы</h3>
+
+        <form id="contactForm">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="name" class="form-label" data-i18n="full_name">Аты-жөніңіз *</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="email" class="form-label" data-i18n="email_address">Электронды пошта *</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label" data-i18n="phone_number">Телефон нөмірі</label>
+            <input type="tel" class="form-control" id="phone">
+          </div>
+
+          <div class="mb-3">
+            <label for="subject" class="form-label" data-i18n="subject">Тақырып *</label>
+            <select class="form-select" id="subject" required>
+              <option value="" disabled selected data-i18n="select_subject">Тақырыпты таңдаңыз</option>
+              <option value="order" data-i18n="order">Тапсырыс</option>
+              <option value="delivery" data-i18n="delivery">Жеткізу</option>
+              <option value="return" data-i18n="return">Қайтару</option>
+              <option value="other" data-i18n="other">Басқа</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label" data-i18n="message">Хабарлама *</label>
+            <textarea class="form-control" id="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 py-2" data-i18n="send">Жіберу</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer class="bg-dark text-white pt-5 pb-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <h5 class="mb-3"><img src="images/logo-white.png" alt="BalaStyle" height="100"></h5>
+        <p data-i18n="footer_about">Балаларға арналған ең үздік киімдер.</p>
+        <div class="social-icons mt-3">
+          <a href="https://www.instagram.com/bala_stylekz?igsh=MWVuMWN0eDVsM2o5Ng%3D%3D&utm_source=qr" class="text-white me-3" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/77711548927" class="text-white" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 mb-4">
+        <h5 class="mb-3" data-i18n="links">Сілтемелер</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="index.html" class="text-white" data-i18n="home">Басты</a></li>
+          <li class="mb-2"><a href="products.html" class="text-white" data-i18n="products">Тауарлар</a></li>
+          <li class="mb-2"><a href="about.html" class="text-white" data-i18n="about">Біз туралы</a></li>
+          <li class="mb-2"><a href="contact.html" class="text-white" data-i18n="contact">Байланыс</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-4 mb-4">
+        <h5 class="mb-3" data-i18n="contact">Байланыс</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> <span data-i18n="address_footer">Алматы, Жандосова</span></li>
+          <li class="mb-2"><i class="fas fa-phone me-2"></i> +7 771 154 89 27</li>
+          <li class="mb-2"><i class="fas fa-envelope me-2"></i> zhansaya.nurdaulet@narxoz.kz</li>
+          <li class="mb-2"><i class="fas fa-clock me-2"></i> <span data-i18n="work_hours_footer">Дүйсенбі-Жұма: 10:00 – 20:00</span></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-4 mb-4">
+        <h5 class="mb-3" data-i18n="subscribe">Жаңалықтарға жазылыңыз</h5>
+        <p data-i18n="subscribe_text">Жаңа тауарлар мен жеңілдіктер туралы хабардар болыңыз.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <div class="input-group mb-3">
+            <input type="email" id="newsletterEmail" class="form-control" placeholder="Email" required data-i18n-placeholder="email">
+            <button class="btn btn-primary" type="submit" data-i18n="subscribe_btn">Жазылу</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <hr class="my-4">
+    <div class="row">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <p class="mb-0">&copy; 2025 BalaStyle. <span data-i18n="rights">Барлық құқықтар қорғалған.</span></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Scripts ===== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Translations
+  const translations = {
+    "home": {
+      "kk": "Басты бет",
+      "ru": "Главная",
+      "en": "Home"
+    },
+    "products": {
+      "kk": "Киімдер",
+      "ru": "Товары",
+      "en": "Products"
+    },
+    "about": {
+      "kk": "Біз туралы",
+      "ru": "О нас",
+      "en": "About"
+    },
+    "contact": {
+      "kk": "Байланыс",
+      "ru": "Контакты",
+      "en": "Contact"
+    },
+    "contact_title": {
+      "kk": "BalaStyle – Байланыс",
+      "ru": "BalaStyle – Контакты",
+      "en": "BalaStyle – Contact"
+    },
+    "contact_header": {
+      "kk": "Бізбен байланысыңыз",
+      "ru": "Свяжитесь с нами",
+      "en": "Contact Us"
+    },
+    "contact_info": {
+      "kk": "Байланыс ақпараты",
+      "ru": "Контактная информация",
+      "en": "Contact Information"
+    },
+    "address": {
+      "kk": "Мекен-жай",
+      "ru": "Адрес",
+      "en": "Address"
+    },
+    "address_value": {
+      "kk": "Қазақстан, Алматы қ., Абай к-сі 1",
+      "ru": "Казахстан, г. Алматы, пр. Абая 1",
+      "en": "Kazakhstan, Almaty, Abay ave. 1"
+    },
+    "phone": {
+      "kk": "Телефон",
+      "ru": "Телефон",
+      "en": "Phone"
+    },
+    "email": {
+      "kk": "E-mail",
+      "ru": "E-mail",
+      "en": "E-mail"
+    },
+    "work_hours": {
+      "kk": "Жұмыс уақыты",
+      "ru": "Часы работы",
+      "en": "Working hours"
+    },
+    "work_hours_value": {
+      "kk": "Дс–Жм: 09:00–20:00<br>Сн–Жс: 10:00–18:00",
+      "ru": "Пн–Пт: 09:00–20:00<br>Сб–Вс: 10:00–18:00",
+      "en": "Mon–Fri: 09:00–20:00<br>Sat–Sun: 10:00–18:00"
+    },
+    "social_media": {
+      "kk": "Әлеуметтік желілер",
+      "ru": "Социальные сети",
+      "en": "Social media"
+    },
+    "feedback_form": {
+      "kk": "Кері байланыс формасы",
+      "ru": "Форма обратной связи",
+      "en": "Feedback form"
+    },
+    "full_name": {
+      "kk": "Аты-жөніңіз *",
+      "ru": "ФИО *",
+      "en": "Full name *"
+    },
+    "email_address": {
+      "kk": "Электронды пошта *",
+      "ru": "Электронная почта *",
+      "en": "Email address *"
+    },
+    "phone_number": {
+      "kk": "Телефон нөмірі",
+      "ru": "Номер телефона",
+      "en": "Phone number"
+    },
+    "subject": {
+      "kk": "Тақырып *",
+      "ru": "Тема *",
+      "en": "Subject *"
+    },
+    "select_subject": {
+      "kk": "Тақырыпты таңдаңыз",
+      "ru": "Выберите тему",
+      "en": "Select subject"
+    },
+    "order": {
+      "kk": "Тапсырыс",
+      "ru": "Заказ",
+      "en": "Order"
+    },
+    "delivery": {
+      "kk": "Жеткізу",
+      "ru": "Доставка",
+      "en": "Delivery"
+    },
+    "return": {
+      "kk": "Қайтару",
+      "ru": "Возврат",
+      "en": "Return"
+    },
+    "other": {
+      "kk": "Басқа",
+      "ru": "Другое",
+      "en": "Other"
+    },
+    "message": {
+      "kk": "Хабарлама *",
+      "ru": "Сообщение *",
+      "en": "Message *"
+    },
+    "send": {
+      "kk": "Жіберу",
+      "ru": "Отправить",
+      "en": "Send"
+    },
+    "footer_about": {
+      "kk": "Балаларға арналған ең үздік киімдер.",
+      "ru": "Лучшая одежда для детей.",
+      "en": "The best clothing for children."
+    },
+    "links": {
+      "kk": "Сілтемелер",
+      "ru": "Ссылки",
+      "en": "Links"
+    },
+    "address_footer": {
+      "kk": "Алматы, Жандосова",
+      "ru": "Алматы, ул. Жандосова",
+      "en": "Almaty, Zhandosova st."
+    },
+    "work_hours_footer": {
+      "kk": "Дүйсенбі-Жұма: 10:00 – 20:00",
+      "ru": "Понедельник-Пятница: 10:00 – 20:00",
+      "en": "Monday-Friday: 10:00 – 20:00"
+    },
+    "subscribe": {
+      "kk": "Жаңалықтарға жазылыңыз",
+      "ru": "Подпишитесь на новости",
+      "en": "Subscribe to news"
+    },
+    "subscribe_text": {
+      "kk": "Жаңа тауарлар мен жеңілдіктер туралы хабардар болыңыз.",
+      "ru": "Будьте в курсе новых товаров и скидок.",
+      "en": "Stay updated on new products and discounts."
+    },
+    "subscribe_btn": {
+      "kk": "Жазылу",
+      "ru": "Подписаться",
+      "en": "Subscribe"
+    },
+    "rights": {
+      "kk": "Барлық құқықтар қорғалған.",
+      "ru": "Все права защищены.",
+      "en": "All rights reserved."
+    }
+  };
+
+  // Language switching function
+  function setLanguage(lang) {
+    // Update active language button
+    document.querySelectorAll('.language-btn').forEach(btn => {
+      btn.classList.remove('active');
+      if ((lang === 'kk' && btn.textContent === 'Қаз') || 
+          (lang === 'ru' && btn.textContent === 'Рус') || 
+          (lang === 'en' && btn.textContent === 'Eng')) {
+        btn.classList.add('active');
+      }
+    });
+
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(elem => {
+      const key = elem.getAttribute('data-i18n');
+      if (translations[key] && translations[key][lang]) {
+        elem.textContent = translations[key][lang];
+      }
+    });
+
+    // Update select options
+    document.querySelectorAll('option[data-i18n]').forEach(option => {
+      const key = option.getAttribute('data-i18n');
+      if (translations[key] && translations[key][lang]) {
+        option.textContent = translations[key][lang];
+      }
+    });
+
+    // Update placeholder texts
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(elem => {
+      const key = elem.getAttribute('data-i18n-placeholder');
+      if (translations[key] && translations[key][lang]) {
+        elem.placeholder = translations[key][lang];
+      }
+    });
+
+    // Save language preference
+    localStorage.setItem('language', lang);
+  }
+
+  // Set language on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Set language from localStorage or default to Kazakh
+    const lang = localStorage.getItem('language') || 'kk';
+    setLanguage(lang);
+
+    // Update cart counter
+    const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+    const counter = document.querySelector('.cart-counter');
+    counter.textContent = cartItems.length;
+    counter.style.display = cartItems.length > 0 ? 'block' : 'none';
+
+    // Contact form submission
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const lang = localStorage.getItem('language') || 'kk';
+      const message = {
+        kk: 'Хабарламаңыз сәтті жіберілді! Біз сізбен жақын арада байланысамыз.',
+        ru: 'Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.',
+        en: 'Your message has been sent successfully! We will contact you soon.'
+      };
+      alert(message[lang]);
+      e.target.reset();
+    });
+
+    // Newsletter form submission
+    document.getElementById('newsletterForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const lang = localStorage.getItem('language') || 'kk';
+      const message = {
+        kk: 'Жазылым үшін рахмет!',
+        ru: 'Спасибо за подписку!',
+        en: 'Thank you for subscribing!'
+      };
+      alert(message[lang]);
+      e.target.reset();
+    });
+  });
+</script>
+</body>
+</html>

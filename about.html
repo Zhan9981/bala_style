@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title data-i18n="about_title">BalaStyle – Біз туралы</title>
+
+  <!-- Bootstrap & icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body        { padding-top: 60px; font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif; }
+    .about-img  { border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,.1); }
+    .stat-box   { text-align:center; padding:20px; background:#f8f9fa; border-radius:5px; }
+    .language-btn {
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      background: white;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    .language-btn.active {
+      background: #0086ff;
+      color: white;
+      border-color: #0086ff;
+    }
+  </style>
+</head>
+
+<body>
+<!-- ===== Navigation ===== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="BalaStyle" height="100"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="home">Басты бет</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html" data-i18n="products">Киімдер</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html" data-i18n="about">Біз туралы</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="contact">Байланыс</a></li>
+      </ul>
+
+      <div class="d-flex align-items-center">
+        <div class="language-selector">
+          <button class="language-btn active" onclick="setLanguage('kk')">Қаз</button>
+          <button class="language-btn" onclick="setLanguage('ru')">Рус</button>
+          <button class="language-btn" onclick="setLanguage('en')">Eng</button>
+        </div>
+        
+        <a href="cart.html" class="btn btn-primary position-relative ms-3">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-counter">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Content ===== -->
+<div class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h2 data-i18n="about_header">BalaStyle туралы</h2>
+      <p class="lead" data-i18n="about_lead">Балаларға арналған ең үздік киімдер</p>
+
+      <p data-i18n="about_description">2010 жылдан бері біз сапалы, ыңғайлы және сәнді балалар киімдерін қолжетімді бағамен ұсынамыз.</p>
+
+      <h3 class="mt-4" data-i18n="advantages">Артықшылықтарымыз</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" data-i18n="advantage1">100 % табиғи материалдар</li>
+        <li class="list-group-item" data-i18n="advantage2">Өнімдер сертификатталған</li>
+        <li class="list-group-item" data-i18n="advantage3">Тегін жеткізу</li>
+        <li class="list-group-item" data-i18n="advantage4">14 күн ішінде қайтару</li>
+      </ul>
+    </div>
+
+    <div class="col-md-6">
+      <img src="images/about.jpg" class="img-fluid about-img" alt="BalaStyle">
+
+      <div class="row mt-4 gy-3">
+        <div class="col-4">
+          <div class="stat-box"><h3>10+</h3><p class="mb-0" data-i18n="years_exp">Жыл тәжірибе</p></div>
+        </div>
+        <div class="col-4">
+          <div class="stat-box"><h3>5000+</h3><p class="mb-0" data-i18n="clients">Клиент</p></div>
+        </div>
+        <div class="col-4">
+          <div class="stat-box"><h3>28+</h3><p class="mb-0" data-i18n="categories">Санат</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer class="bg-dark text-white pt-5 pb-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <h5 class="mb-3"><img src="images/logo-white.png" alt="BalaStyle" height="100"></h5>
+        <p data-i18n="footer_about">Балаларға арналған ең үздік киімдер.</p>
+        <div class="social-icons mt-3">
+          <a href="https://www.instagram.com/bala_stylekz?igsh=MWVuMWN0eDVsM2o5Ng%3D%3D&utm_source=qr" class="text-white me-3" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/77711548927" class="text-white" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4 mb-4">
+        <h5 class="mb-3" data-i18n="links">Сілтемелер</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="text-white" data-i18n="home">Басты</a></li>
+          <li><a href="products.html" class="text-white" data-i18n="products">Тауарлар</a></li>
+          <li><a href="about.html" class="text-white" data-i18n="about">Біз туралы</a></li>
+          <li><a href="contact.html" class="text-white" data-i18n="contact">Байланыс</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-4 mb-4">
+        <h5 class="mb-3" data-i18n="contact">Байланыс</h5>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-map-marker-alt me-2"></i> <span data-i18n="address">Алматы, Жандосова</span></li>
+          <li><i class="fas fa-phone me-2"></i> +7 771 154 89 27</li>
+          <li><i class="fas fa-envelope me-2"></i> zhansaya.nurdaulet@narxoz.kz</li>
+          <li><i class="fas fa-clock me-2"></i> <span data-i18n="work_hours">Дс–Жм: 10:00 – 20:00</span></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-4 mb-4">
+        <h5 class="mb-3" data-i18n="subscribe">Жаңалықтарға жазылыңыз</h5>
+        <p data-i18n="subscribe_text">Жаңа тауарлар мен жеңілдіктерден хабардар болыңыз.</p>
+        <form class="newsletter-form">
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Email" required data-i18n-placeholder="email">
+            <button class="btn btn-primary" type="submit" data-i18n="subscribe_btn">Жазылу</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <hr class="my-4">
+    <div class="row">
+      <div class="col-md-6 mb-3 mb-md-0">&copy; 2025 BalaStyle. <span data-i18n="rights">Барлық құқықтар қорғалған.</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Scripts ===== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Translations
+  const translations = {
+    "home": {
+      "kk": "Басты бет",
+      "ru": "Главная",
+      "en": "Home"
+    },
+    "products": {
+      "kk": "Киімдер",
+      "ru": "Товары",
+      "en": "Products"
+    },
+    "about": {
+      "kk": "Біз туралы",
+      "ru": "О нас",
+      "en": "About"
+    },
+    "contact": {
+      "kk": "Байланыс",
+      "ru": "Контакты",
+      "en": "Contact"
+    },
+    "about_title": {
+      "kk": "BalaStyle – Біз туралы",
+      "ru": "BalaStyle – О нас",
+      "en": "BalaStyle – About Us"
+    },
+    "about_header": {
+      "kk": "BalaStyle туралы",
+      "ru": "О BalaStyle",
+      "en": "About BalaStyle"
+    },
+    "about_lead": {
+      "kk": "Балаларға арналған ең үздік киімдер",
+      "ru": "Лучшая одежда для детей",
+      "en": "The best clothing for children"
+    },
+    "about_description": {
+      "kk": "2010 жылдан бері біз сапалы, ыңғайлы және сәнді балалар киімдерін қолжетімді бағамен ұсынамыз.",
+      "ru": "С 2010 года мы предлагаем качественную, удобную и стильную детскую одежду по доступным ценам.",
+      "en": "Since 2010, we have been offering quality, comfortable and stylish children's clothing at affordable prices."
+    },
+    "advantages": {
+      "kk": "Артықшылықтарымыз",
+      "ru": "Наши преимущества",
+      "en": "Our advantages"
+    },
+    "advantage1": {
+      "kk": "100 % табиғи материалдар",
+      "ru": "100% натуральные материалы",
+      "en": "100% natural materials"
+    },
+    "advantage2": {
+      "kk": "Өнімдер сертификатталған",
+      "ru": "Продукция сертифицирована",
+      "en": "Certified products"
+    },
+    "advantage3": {
+      "kk": "Тегін жеткізу",
+      "ru": "Бесплатная доставка",
+      "en": "Free delivery"
+    },
+    "advantage4": {
+      "kk": "14 күн ішінде қайтару",
+      "ru": "Возврат в течение 14 дней",
+      "en": "14-day return"
+    },
+    "years_exp": {
+      "kk": "Жыл тәжірибе",
+      "ru": "Лет опыта",
+      "en": "Years experience"
+    },
+    "clients": {
+      "kk": "Клиент",
+      "ru": "Клиентов",
+      "en": "Clients"
+    },
+    "categories": {
+      "kk": "Санат",
+      "ru": "Категорий",
+      "en": "Categories"
+    },
+    "footer_about": {
+      "kk": "Балаларға арналған ең үздік киімдер.",
+      "ru": "Лучшая одежда для детей.",
+      "en": "The best clothing for children."
+    },
+    "links": {
+      "kk": "Сілтемелер",
+      "ru": "Ссылки",
+      "en": "Links"
+    },
+    "address": {
+      "kk": "Алматы, Жандосова",
+      "ru": "Алматы, ул. Жандосова",
+      "en": "Almaty, Zhandosova st."
+    },
+    "work_hours": {
+      "kk": "Дс–Жм: 10:00 – 20:00",
+      "ru": "Пн–Пт: 10:00 – 20:00",
+      "en": "Mon–Fri: 10:00 – 20:00"
+    },
+    "subscribe": {
+      "kk": "Жаңалықтарға жазылыңыз",
+      "ru": "Подпишитесь на новости",
+      "en": "Subscribe to news"
+    },
+    "subscribe_text": {
+      "kk": "Жаңа тауарлар мен жеңілдіктерден хабардар болыңыз.",
+      "ru": "Будьте в курсе новых товаров и скидок.",
+      "en": "Stay updated on new products and discounts."
+    },
+    "email": {
+      "kk": "Email",
+      "ru": "Email",
+      "en": "Email"
+    },
+    "subscribe_btn": {
+      "kk": "Жазылу",
+      "ru": "Подписаться",
+      "en": "Subscribe"
+    },
+    "rights": {
+      "kk": "Барлық құқықтар қорғалған.",
+      "ru": "Все права защищены.",
+      "en": "All rights reserved."
+    }
+  };
+
+  // Language switching function
+  function setLanguage(lang) {
+    // Update active language button
+    document.querySelectorAll('.language-btn').forEach(btn => {
+      btn.classList.remove('active');
+      if ((lang === 'kk' && btn.textContent === 'Қаз') || 
+          (lang === 'ru' && btn.textContent === 'Рус') || 
+          (lang === 'en' && btn.textContent === 'Eng')) {
+        btn.classList.add('active');
+      }
+    });
+
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(elem => {
+      const key = elem.getAttribute('data-i18n');
+      if (translations[key] && translations[key][lang]) {
+        elem.textContent = translations[key][lang];
+      }
+    });
+
+    // Update placeholder texts
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(elem => {
+      const key = elem.getAttribute('data-i18n-placeholder');
+      if (translations[key] && translations[key][lang]) {
+        elem.placeholder = translations[key][lang];
+      }
+    });
+
+    // Save language preference
+    localStorage.setItem('language', lang);
+  }
+
+  // Set language on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Set language from localStorage or default to Kazakh
+    const lang = localStorage.getItem('language') || 'kk';
+    setLanguage(lang);
+
+    // Update cart counter
+    const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+    const counter = document.querySelector('.cart-counter');
+    counter.textContent = cartItems.length;
+    counter.style.display = cartItems.length > 0 ? 'block' : 'none';
+  });
+</script>
+</body>
+</html>

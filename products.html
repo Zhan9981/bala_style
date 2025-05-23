@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title data-i18n="products_title">BalaStyle – Өнімдер</title>
+
+  <!---- CSS / Libraries --->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root{--primary:#0086ff;--secondary:#f8f9fa;--dark:#212529;--radius:16px;--sale:#ff4d4f}
+    body{font-family:Poppins,sans-serif;background:var(--secondary);color:var(--dark)}
+    .navbar-brand img{height:44px}
+    .nav-link.active{color:var(--primary)!important;font-weight:600}
+
+    /* product card */
+    .product-card{background:#fff;border:none;border-radius:var(--radius);overflow:hidden;position:relative;transition:.35s cubic-bezier(.33,1,.68,1);box-shadow:0 2px 6px rgba(0,0,0,.05)}
+    .product-card:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgba(0,0,0,.12)}
+    .product-card img{width:100%;height:250px;object-fit:cover;transition:transform .5s ease}
+    .product-card:hover img{transform:scale(1.08)}
+
+    /* badges / price */
+    .badge{position:absolute;top:12px;left:12px;font-size:.7rem;font-weight:600;padding:4px 7px;border-radius:6px;color:#fff;letter-spacing:.3px;box-shadow:0 2px 4px rgba(0,0,0,.15)}
+    .badge-new{background:#20c997}
+    .badge-sale{background:var(--sale)}
+    .product-info{padding:18px 16px;text-align:center}
+    .product-title{font-size:1.05rem;font-weight:600;min-height:48px;margin-bottom:4px;line-height:1.25}
+    .product-desc{font-size:.85rem;color:#6c757d;min-height:38px}
+    .price-wrap{margin:10px 0;display:flex;justify-content:center;gap:8px;align-items:center}
+    .new-price{font-size:1.2rem;font-weight:700;color:var(--primary)}
+    .old-price{font-size:.95rem;color:#6c757d;text-decoration:line-through}
+
+    /* cart btn / counter */
+    .btn-cart{background:linear-gradient(135deg,#0097ff 0%,#006dff 100%);color:#fff;width:100%;border:none;padding:10px 0;border-radius:8px;font-weight:600;letter-spacing:.3px;transition:.3s}
+    .btn-cart:hover{filter:brightness(1.1)}
+    .cart-counter{position:absolute;top:-6px;right:-8px;background:var(--sale);color:#fff;border-radius:50%;width:20px;height:20px;font-size:.75rem;display:flex;align-items:center;justify-content:center}
+
+    /* Language selector */
+    .language-selector {
+      margin-left: 15px;
+    }
+    .language-btn {
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      background: white;
+      cursor: pointer;
+    }
+    .language-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+  </style>
+</head>
+
+<body>
+  <!---- Navbar --->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="BalaStyle" height="200"></a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="home">Басты бет</a></li>
+          <li class="nav-item"><a class="nav-link active" href="products.html" data-i18n="products">Киімдер</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="about">Біз туралы</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="contact">Байланыс</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center">
+          <div class="language-selector">
+            <button class="language-btn active" onclick="setLanguage('kk')">Қаз</button>
+            <button class="language-btn" onclick="setLanguage('ru')">Рус</button>
+            <button class="language-btn" onclick="setLanguage('en')">Eng</button>
+          </div>
+          
+          <a href="cart.html" class="btn position-relative ms-3" style="background:var(--primary);color:#fff">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-counter" style="display:none">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!---- Content --->
+  <div class="container py-5">
+    <h1 id="title" class="mb-4" data-i18n="all_products">Барлық киімдер</h1>
+
+    <div id="products-container" class="row g-4"><!-- JS inserts products --></div>
+  </div>
+
+  <!---- Footer --->
+  <footer class="bg-dark text-white py-4">
+    <div class="container text-center small">© 2025 BalaStyle</div>
+  </footer>
+
+  <!---- Scripts --->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="/js/cart-utils.js"></script>
+  <script type="module" src="/js/products.js"></script>
+
+  <!---- Translations --->
+  <script>
+    const translations = {
+      "home": {
+        "kk": "Басты бет",
+        "ru": "Главная",
+        "en": "Home"
+      },
+      "products": {
+        "kk": "Киімдер",
+        "ru": "Товары",
+        "en": "Products"
+      },
+      "about": {
+        "kk": "Біз туралы",
+        "ru": "О нас",
+        "en": "About"
+      },
+      "contact": {
+        "kk": "Байланыс",
+        "ru": "Контакты",
+        "en": "Contact"
+      },
+      "products_title": {
+        "kk": "BalaStyle – Өнімдер",
+        "ru": "BalaStyle – Товары",
+        "en": "BalaStyle – Products"
+      },
+      "all_products": {
+        "kk": "Барлық киімдер",
+        "ru": "Все товары",
+        "en": "All products"
+      },
+      "add_to_cart": {
+        "kk": "Себетке қосу",
+        "ru": "В корзину",
+        "en": "Add to cart"
+      },
+      "new": {
+        "kk": "Жаңа",
+        "ru": "Новинка",
+        "en": "New"
+      },
+      "sale": {
+        "kk": "Жеңілдік",
+        "ru": "Скидка",
+        "en": "Sale"
+      }
+    };
+
+    // Language switching function
+    function setLanguage(lang) {
+      // Update active language button
+      document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if ((lang === 'kk' && btn.textContent === 'Қаз') || 
+            (lang === 'ru' && btn.textContent === 'Рус') || 
+            (lang === 'en' && btn.textContent === 'Eng')) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(elem => {
+        const key = elem.getAttribute('data-i18n');
+        if (translations[key] && translations[key][lang]) {
+          elem.textContent = translations[key][lang];
+        }
+      });
+
+      // Save language preference
+      localStorage.setItem('language', lang);
+    }
+
+    // Set language on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set language from localStorage or default to Kazakh
+      const lang = localStorage.getItem('language') || 'kk';
+      setLanguage(lang);
+
+      // Update cart counter
+      const c = JSON.parse(localStorage.getItem('cart') || '[]');
+      const b = document.querySelector('.cart-counter');
+      const t = c.reduce((s, p) => s + (+p.qty || 0), 0);
+      if (t) { b.style.display = 'flex'; b.textContent = t; }
+    });
+  </script>
+</body>
+</html>

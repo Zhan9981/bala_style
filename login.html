@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title data-i18n="login_title">Кіру - BalaStyle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            padding-top: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+        }
+        .login-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .language-btn {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        .language-btn.active {
+            background: #0d6efd;
+            color: white;
+            border-color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="BalaStyle" height="100">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html" data-i18n="home">Басты бет</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html" data-i18n="products">Киімдер</a></li>
+                    <li class="nav-item"><a class="nav-link" href="categories.html" data-i18n="categories">Категориялар</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="about">Біз туралы</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="contact">Байланыс</a></li>
+                </ul>
+                <div class="language-selector">
+                    <button class="language-btn active" onclick="setLanguage('kk')">Қаз</button>
+                    <button class="language-btn" onclick="setLanguage('ru')">Рус</button>
+                    <button class="language-btn" onclick="setLanguage('en')">Eng</button>
+                </div>
+                <a href="login.html" class="btn btn-outline-primary me-2"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="btn btn-primary position-relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-counter" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Кіру формасы -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card login-card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4" data-i18n="login_header">Жүйеге кіру</h2>
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="email" class="form-label" data-i18n="email">Электрондық пошта</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label" data-i18n="password">Құпия сөз</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="remember">
+                                <label class="form-check-label" for="remember" data-i18n="remember_me">Мені есте сақтау</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100" data-i18n="login_button">Кіру</button>
+                        </form>
+                        <div class="text-center mt-3">
+                             <p data-i18n="no_account">Аккаунтыңыз жоқ па?</p>
+                             <a href="register.html" class="btn btn-outline-secondary" data-i18n="register">Тіркелу</a>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <a href="forgot-password.html" class="text-decoration-none" data-i18n="forgot_password">
+                                           Құпия сөзді ұмыттыңыз ба?
+                                                   </a>
+                                     </div>
+                           
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">
+                        <img src="images/logo-white.png" alt="BalaStyle" height="100">
+                    </h5>
+                    <p data-i18n="footer_description">Балаларға арналған ең үздік киімдер.</p>
+                    <div class="social-icons mt-3">
+                       
+                        <a href="https://www.instagram.com/bala_stylekz?igsh=MWVuMWN0eDVsM2o5Ng%3D%3D&utm_source=qr" class="text-white me-3" target="_blank"><i class="fab fa-instagram"></i></a>
+                       
+                        <a href="https://wa.me/77711548927" class="text-white" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="mb-3" data-i18n="links">Сілтемелер</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white" data-i18n="home">Басты бет</a></li>
+                        <li><a href="products.html" class="text-white" data-i18n="products">Тауарлар</a></li>
+                        <li><a href="about.html" class="text-white" data-i18n="about">Біз туралы</a></li>
+                        <li><a href="contact.html" class="text-white" data-i18n="contact">Байланыс</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h5 class="mb-3" data-i18n="contact_us">Байланыс</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> <span data-i18n="address">Алматы, Жандосова</span></li>
+                        <li><i class="fas fa-phone me-2"></i> +7 777 123 4567</li>
+                        <li><i class="fas fa-envelope me-2"></i> zhansaya.nurdaulet@narxoz.kz</li>
+                        <li><i class="fas fa-clock me-2"></i> <span data-i18n="working_hours">Дүйсенбі-Жұма: 10:00 - 20:00</span></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h5 class="mb-3" data-i18n="newsletter">Жаңалықтарға жазылыңыз</h5>
+                    <form class="newsletter-form">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email" required>
+                            <button class="btn btn-primary" type="submit" data-i18n="subscribe">Жазылу</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0">&copy; 2023 BalaStyle. <span data-i18n="rights_reserved">Барлық құқықтар қорғалған.</span></p>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Translations
+        const translations = {
+            "login_title": {
+                "kk": "Кіру - BalaStyle",
+                "ru": "Вход - BalaStyle",
+                "en": "Login - BalaStyle"
+            },
+            "home": {
+                "kk": "Басты бет",
+                "ru": "Главная",
+                "en": "Home"
+            },
+            "products": {
+                "kk": "Киімдер",
+                "ru": "Товары",
+                "en": "Products"
+            },
+            "categories": {
+                "kk": "Категориялар",
+                "ru": "Категории",
+                "en": "Categories"
+            },
+            "about": {
+                "kk": "Біз туралы",
+                "ru": "О нас",
+                "en": "About"
+            },
+            "contact": {
+                "kk": "Байланыс",
+                "ru": "Контакты",
+                "en": "Contact"
+            },
+            "login_header": {
+                "kk": "Жүйеге кіру",
+                "ru": "Вход в систему",
+                "en": "Login"
+            },
+            "email": {
+                "kk": "Электрондық пошта",
+                "ru": "Электронная почта",
+                "en": "Email"
+            },
+            "password": {
+                "kk": "Құпия сөз",
+                "ru": "Пароль",
+                "en": "Password"
+            },
+            "remember_me": {
+                "kk": "Мені есте сақтау",
+                "ru": "Запомнить меня",
+                "en": "Remember me"
+            },
+            "login_button": {
+                "kk": "Кіру",
+                "ru": "Войти",
+                "en": "Login"
+            },
+            "no_account": {
+                "kk": "Аккаунтыңыз жоқ па?",
+                "ru": "Нет аккаунта?",
+                "en": "Don't have an account?"
+            },
+            "register": {
+                "kk": "Тіркелу",
+                "ru": "Регистрация",
+                "en": "Register"
+            },
+            "forgot_password": {
+                "kk": "Құпия сөзіңізді ұмыттыңыз ба?",
+                "ru": "Забыли пароль?",
+                "en": "Forgot password?"
+            },
+            "footer_description": {
+                "kk": "Балаларға арналған ең үздік киімдер.",
+                "ru": "Лучшая одежда для детей.",
+                "en": "The best clothes for children."
+            },
+            "links": {
+                "kk": "Сілтемелер",
+                "ru": "Ссылки",
+                "en": "Links"
+            },
+            "blog": {
+                "kk": "Блог",
+                "ru": "Блог",
+                "en": "Blog"
+            },
+            "contact_us": {
+                "kk": "Байланыс",
+                "ru": "Контакты",
+                "en": "Contact us"
+            },
+            "address": {
+                "kk": "Алматы, Абай көш. 1",
+                "ru": "Алматы, ул. Абая 1",
+                "en": "Almaty, Abay st. 1"
+            },
+            "working_hours": {
+                "kk": "Дүйсенбі-Жұма: 10:00 - 20:00",
+                "ru": "Пн-Пт: 10:00 - 20:00",
+                "en": "Mon-Fri: 10:00 - 20:00"
+            },
+            "newsletter": {
+                "kk": "Жаңалықтарға жазылыңыз",
+                "ru": "Подпишитесь на новости",
+                "en": "Subscribe to newsletter"
+            },
+            "subscribe": {
+                "kk": "Жазылу",
+                "ru": "Подписаться",
+                "en": "Subscribe"
+            },
+            "rights_reserved": {
+                "kk": "Барлық құқықтар қорғалған.",
+                "ru": "Все права защищены.",
+                "en": "All rights reserved."
+            },
+            "privacy_policy": {
+                "kk": "Құпиялылық саясаты",
+                "ru": "Политика конфиденциальности",
+                "en": "Privacy Policy"
+            },
+            "terms_of_service": {
+                "kk": "Қызмет көрсету шарттары",
+                "ru": "Условия обслуживания",
+                "en": "Terms of Service"
+            },
+            "login_success": {
+                "kk": "Сіз сәтті кірдіңіз!",
+                "ru": "Вы успешно вошли!",
+                "en": "You have successfully logged in!"
+            }
+        };
+
+        // Language switching function
+        function setLanguage(lang) {
+            // Update active language button
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if ((lang === 'kk' && btn.textContent === 'Қаз') || 
+                    (lang === 'ru' && btn.textContent === 'Рус') || 
+                    (lang === 'en' && btn.textContent === 'Eng')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(elem => {
+                const key = elem.getAttribute('data-i18n');
+                if (translations[key] && translations[key][lang]) {
+                    elem.textContent = translations[key][lang];
+                }
+            });
+
+            // Update placeholder attributes
+            const emailInput = document.getElementById('email');
+            if (emailInput) {
+                emailInput.placeholder = translations['email'][lang];
+            }
+
+            // Save language preference
+            localStorage.setItem('language', lang);
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set language from localStorage or default to Kazakh
+            const lang = localStorage.getItem('language') || 'kk';
+            setLanguage(lang);
+            
+            // Login form handler
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const lang = localStorage.getItem('language') || 'kk';
+                alert(translations['login_success'][lang]);
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>
